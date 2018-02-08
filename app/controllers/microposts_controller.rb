@@ -31,6 +31,7 @@ class MicropostsController < ApplicationController
         format.html { redirect_to @micropost, notice: 'Micropost was successfully created.' }
         format.json { render :show, status: :created, location: @micropost }
       else
+        binding.pry
         format.html { render :new }
         format.json { render json: @micropost.errors, status: :unprocessable_entity }
       end
