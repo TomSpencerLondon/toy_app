@@ -2,8 +2,11 @@ require 'test_helper'
 
 class MicropostsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @micropost = microposts(:one)
+    @user = User.create(email: 'user4@example.com', name: 'MyString', 
+                        password: 'hellohello', password_confirmation: 'hellohello')
+    @micropost = Micropost.create(content: "Hello", user: @user)
   end
+
 
   test "should get index" do
     get microposts_url
