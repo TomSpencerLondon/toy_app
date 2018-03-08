@@ -26,14 +26,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    respond_to do |format|
       if @user.save
         flash[:success] = "Welcome to the Sample App!"
         redirect_to @user
       else
         render 'new'
       end
-    end
   end
 
   # PATCH/PUT /users/1
